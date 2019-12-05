@@ -36,18 +36,17 @@ public class MenuController : MonoBehaviour
                 menuElems.Add(t.gameObject);
                 t.gameObject.SetActive(false);
             }
+            Paused = false;
+            Time.timeScale = 1;
+            GameObject.Find("GameController").GetComponent<Game>().playing = true;
+            menuElems = new List<GameObject>();
+            foreach (Transform t in transform) {
+                menuElems.Add(t.gameObject);
+                t.gameObject.SetActive(false);
+            }
+            LostGame.SetActive(false);
+            WonGame.SetActive(false);
         }
-        Paused = false;
-        Time.timeScale = 1;
-        GameObject.Find("GameController").GetComponent<Game>().playing = true;
-        menuElems = new List<GameObject>();
-        foreach (Transform t in transform)
-        {
-            menuElems.Add(t.gameObject);
-            t.gameObject.SetActive(false);
-        }
-        LostGame.SetActive(false);
-        WonGame.SetActive(false);
     }
 
     public void enterGame()

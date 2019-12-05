@@ -201,7 +201,9 @@ public class HotSteve : Enemy
         {
             state = Enemy.State.Shoot;
             shot = false;
-            gunTurret.GetComponent<HotSteveGun>().shotDone = false;
+            if (gunTurret != null) {
+                gunTurret.GetComponent<HotSteveGun>().shotDone = false;
+            }
         }
     }
     void handleFlyDown()
